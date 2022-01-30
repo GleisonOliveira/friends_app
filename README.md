@@ -10,7 +10,8 @@ by adding `friends_app` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:friends_app, "~> 0.1.0"}
+    {:friends_app, "~> 0.1.0"},
+    {:faker, "~> 0.17.0"}
   ]
 end
 ```

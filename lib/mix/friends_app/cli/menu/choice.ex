@@ -11,10 +11,10 @@ defmodule FriendsApp.CLI.Menu.Choice do
     find_menu_item_by_index = &Enum.at(menu_itens, &1, :error)
 
     menu_itens
-    |> Enum.map(&(&1.label))
+    |> Enum.map(& &1.label)
     |> display_options()
     |> generate_question()
-    |> Shell.prompt
+    |> Shell.prompt()
     |> parse_answer()
     |> find_menu_item_by_index.()
     |> confirm_menu_item()
@@ -42,8 +42,6 @@ defmodule FriendsApp.CLI.Menu.Choice do
       :error -> invalid_option()
       {option, _} -> option - 1
     end
-
-    1
   end
 
   defp confirm_menu_item(chosen_menu_item) do
@@ -55,7 +53,7 @@ defmodule FriendsApp.CLI.Menu.Choice do
 
   defp confirm_message(selected_option) do
     Shell.cmd("cls")
-    Shell.info("Voçê escolher a opção ['#{selected_option.label}']")
+    Shell.info("Voçê escolheu a opção ['#{selected_option.label}']")
 
     if Shell.yes?("Deseja confirmar?") do
       Shell.info("... #{selected_option.label} ...")

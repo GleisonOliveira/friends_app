@@ -23,7 +23,7 @@ defmodule Mix.Tasks.Utils.AddFakeFriends do
   defp random_list_friend do
     %Friend{
       name: Faker.Person.PtBr.name(),
-      mail: Faker.Internet.email(),
+      email: Faker.Internet.email(),
       phone: Faker.Phone.EnUs.phone()
     }
     |> Map.from_struct()
